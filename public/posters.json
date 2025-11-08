@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "url": "https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Creative Design",
+    "category": "poster"
+  },
+  {
+    "id": 2,
+    "url": "https://images.pexels.com/photos/1509534/pexels-photo-1509534.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Brand Identity",
+    "category": "poster"
+  },
+  {
+    "id": 3,
+    "url": "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Event Promotion",
+    "category": "poster"
+  },
+  {
+    "id": 4,
+    "url": "https://images.pexels.com/photos/1616408/pexels-photo-1616408.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Music Festival",
+    "category": "poster"
+  },
+  {
+    "id": 5,
+    "url": "https://images.pexels.com/photos/1144176/pexels-photo-1144176.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Art Exhibition",
+    "category": "poster"
+  },
+  {
+    "id": 6,
+    "url": "https://images.pexels.com/photos/4963437/pexels-photo-4963437.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Digital Campaign",
+    "category": "poster"
+  },
+  {
+    "id": 7,
+    "url": "https://images.pexels.com/photos/1549280/pexels-photo-1549280.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Product Launch",
+    "category": "poster"
+  },
+  {
+    "id": 8,
+    "url": "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Social Media",
+    "category": "poster"
+  },
+  {
+    "id": 9,
+    "url": "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "title": "Typography Art",
+    "category": "poster"
+  }
+]
