@@ -35,8 +35,11 @@ export default function Navigation() {
             ))}
           </div>
 
-          <button className="hidden md:block px-6 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 rounded-lg text-white font-semibold transition-all transform hover:scale-105">
-            Get Started
+          <button 
+            className="hidden md:block px-6 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 rounded-lg text-white font-semibold transition-all transform hover:scale-105"
+            onClick={() => window.dispatchEvent(new CustomEvent('openClientModal'))}
+          >
+            + Become a Client
           </button>
 
           <button
@@ -59,8 +62,14 @@ export default function Navigation() {
                 {link.name}
               </Link>
             ))}
-            <button className="w-full mt-4 px-6 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg text-white font-semibold transition-all">
-              Get Started
+            <button 
+              className="w-full mt-4 px-6 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg text-white font-semibold transition-all"
+              onClick={() => {
+                setIsOpen(false);
+                window.dispatchEvent(new CustomEvent('openClientModal'));
+              }}
+            >
+              + Become a Client
             </button>
           </div>
         )}
