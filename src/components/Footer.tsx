@@ -182,9 +182,9 @@ export default function Footer() {
         </div>
 
         {/* Built with love */}
-        <div className="text-center mt-8 text-slate-400 text-sm flex items-center justify-center gap-2">
+        {/* <div className="text-center mt-8 text-slate-400 text-sm flex items-center justify-center gap-2">
           Built with <span className="text-red-500">heart</span> and <Coffee className="w-4 h-4 text-yellow-500 inline" /> using <span className="text-green-400">code</span>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

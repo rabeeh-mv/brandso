@@ -1,6 +1,6 @@
 import Hero from '../components/Hero';
 import Services from '../components/Services';
-// import PosterWall from '../components/DomeGallery';
+
 import ProjectsPreview from '../components/ProjectsPreview';
 import Footer from '../components/Footer';
 import PosterWall from '../components/PosterWall';
