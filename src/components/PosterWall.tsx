@@ -1,4 +1,4 @@
-import DomeGallery from './DomeGallery';
+import DomeGallery from './reactbits/DomeGallery';
 export default function App() {
   return (
     <div>
