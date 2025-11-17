@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CardSwap, { Card } from './reactbits/CardSwap'
 import { Code, Palette, Zap, TrendingUp } from 'lucide-react';
 import Clients from './Clients';
+import { motion } from 'framer-motion';
 
 export default function WhyUs() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,13 +12,13 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <div>
+    <div className='mt-5'>
       <Clients />
 
-    <section className="relative bg-black text-white min-h-screen lg:h-screen py-20 overflow-hidden">
+    <section className="relative bg-black text-white h-screen flex items-center justify-center py-10 md:py-20 overflow-hidden">
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
+        <motion.div
           className={`absolute w-[600px] h-[600px] bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -25,8 +26,11 @@ export default function WhyUs() {
             top: '10%',
             left: '5%',
           }}
-        ></div>
-        <div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        ></motion.div>
+        <motion.div
           className={`absolute w-[400px] h-[400px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -34,30 +38,31 @@ export default function WhyUs() {
             bottom: '10%',
             right: '5%',
           }}
-        ></div>
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        ></motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center w-full">
           {/* Left Content - Why Us Title and Description */}
-          <div className={`space-y-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              Why Choose <br /><span className="text-emerald-500">Brandso</span>?
+          <motion.div className={`flex flex-col items-center text-center lg:text-left lg:items-start space-y-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              Yes, you are in the right place.
             </h2>
             
-            <p className="text-sm md:text-lg text-gray-300 leading-relaxed">
-              We are a premium digital agency that combines creativity with technical expertise to deliver exceptional results. Our team of skilled professionals is dedicated to transforming your vision into reality through innovative design, cutting-edge development, and strategic marketing solutions.
+            <p className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed">
+              Let's bring your vision alive, the way you dreamed it.
             </p>
             
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              With years of experience and a passion for excellence, we've helped hundreds of businesses elevate their brand presence and achieve their goals. Our client-centric approach ensures that every project is tailored to meet your unique needs and objectives.
-            </p>
-            
-            
-          </div>
+            <motion.button className="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition duration-300 transform hover:scale-105" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              Let's start
+            </motion.button>
+          </motion.div>
 
           {/* Right Visual - CardSwiper */}
-          <div className={`mt-60 relative transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <motion.div className={`mt-60  lg:mt-60 relative transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
             <div>
               <CardSwap
                 cardDistance={60}
@@ -69,7 +74,7 @@ export default function WhyUs() {
                   <div className="p-6 h-full flex flex-col justify-between bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl">
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">Brand Identity</h3>
-                      <p className="text-slate-300">Complete brand design solutions</p>
+                      <p className="text-slate-300">Start now — your growth begins here.</p>
                     </div>
                     <div className="flex items-center justify-between mt-4">
                       <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Design</span>
@@ -115,7 +120,7 @@ export default function WhyUs() {
                 </Card>
               </CardSwap>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

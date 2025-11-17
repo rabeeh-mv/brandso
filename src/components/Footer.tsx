@@ -1,5 +1,6 @@
 // components/Footer.tsx
 import { Mail, Phone, MapPin, MessageCircle, Send, Github, Linkedin, Instagram, Facebook, MessageSquare, Coffee } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +13,7 @@ export default function Footer() {
       className="relative bg-black/90 backdrop-blur-2xl border-t border-teal-800/30 overflow-hidden"
       style={{
         background: `linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a)`,
-        backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djJoaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bS0yIDJ2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yeiIvPjwvZz48L2c+PC9zdmc+')`,
+        backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djJoaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bS0yIDJ2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yeiIvPjwvZz48L2c+PC9zdmc+')`,
         backgroundSize: '60px 60px',
       }}
     >
@@ -32,7 +33,13 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <span className="px-4 py-2 bg-teal-700/50 backdrop-blur-sm border border-teal-600 rounded-full text-sm font-medium text-teal-400 inline-block">
             Contact
           </span>
@@ -42,11 +49,17 @@ export default function Footer() {
           <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
             Let’s bring your brand to life. Start the conversation today.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left: Send Message via WhatsApp */}
-          <div className="relative">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <div className="bg-slate-800/40 backdrop-blur-xl border border-teal-700/40 rounded-2xl p-8 shadow-2xl shadow-teal-900/20">
               {/* Pulsing Gradient Behind */}
               <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-teal-500/10 via-emerald-500/5 to-teal-600/10 animate-pulse"></div>
@@ -83,19 +96,27 @@ export default function Footer() {
                   required
                   className="w-full px-5 py-3 bg-slate-800/60 backdrop-blur-md border border-teal-700/40 rounded-xl text-white placeholder-teal-300/60 focus:border-teal-400 focus:outline-none transition-all duration-300 resize-none"
                 />
-                <button
+                <motion.button
                   type="submit"
                   className="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold rounded-xl transition-all hover:scale-105 shadow-lg shadow-teal-900/30 flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Send className="w-5 h-5" />
                   Send via WhatsApp
-                </button>
+                </motion.button>
               </form>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Contact Info + Quick Response */}
-          <div className="space-y-8">
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             {/* Brand Info */}
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -113,22 +134,24 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Get in Touch</h4>
               <div className="space-y-3">
-                <a
+                <motion.a
                   href={`mailto:${email}`}
                   className="flex items-center gap-3 text-teal-400 hover:text-teal-300 transition"
+                  whileHover={{ x: 5 }}
                 >
                   <Mail className="w-5 h-5" />
                   <span>{email}</span>
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-emerald-400 hover:text-emerald-300 transition"
+                  whileHover={{ x: 5 }}
                 >
                   <Phone className="w-5 h-5" />
                   <span>+91 95626 95758</span>
-                </a>
+                </motion.a>
                 <div className="flex items-center gap-3 text-slate-300">
                   <MapPin className="w-5 h-5 text-teal-400" />
                   <span>Kerala, India</span>
@@ -147,11 +170,17 @@ export default function Footer() {
                 For urgent matters, <span className="text-emerald-400 font-medium">WhatsApp</span> is the fastest way to reach us.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-teal-800/30 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+        <motion.div 
+          className="mt-16 pt-8 border-t border-teal-800/30 flex flex-col md:flex-row justify-between items-center gap-6 text-sm"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <p className="text-slate-400">
             © {currentYear} Brandso. All rights reserved.
           </p>
@@ -159,27 +188,27 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <p className="text-slate-400">Follow Me</p>
             <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition">
+              <motion.a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition" whileHover={{ y: -5 }}>
                 <Github className="w-5 h-5 text-teal-400" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition">
+              </motion.a>
+              <motion.a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition" whileHover={{ y: -5 }}>
                 <Linkedin className="w-5 h-5 text-teal-400" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition">
+              </motion.a>
+              <motion.a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition" whileHover={{ y: -5 }}>
                 <Instagram className="w-5 h-5 text-teal-400" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition">
+              </motion.a>
+              <motion.a href="#" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition" whileHover={{ y: -5 }}>
                 <Facebook className="w-5 h-5 text-teal-400" />
-              </a>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-emerald-600/30 transition">
+              </motion.a>
+              <motion.a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-emerald-600/30 transition" whileHover={{ y: -5 }}>
                 <MessageSquare className="w-5 h-5 text-emerald-400" />
-              </a>
-              <a href={`mailto:${email}`} className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition">
+              </motion.a>
+              <motion.a href={`mailto:${email}`} className="w-10 h-10 bg-slate-800/60 backdrop-blur-md rounded-lg flex items-center justify-center hover:bg-teal-600/30 transition" whileHover={{ y: -5 }}>
                 <Mail className="w-5 h-5 text-teal-400" />
-              </a>
+              </motion.a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Built with love */}
         {/* <div className="text-center mt-8 text-slate-400 text-sm flex items-center justify-center gap-2">

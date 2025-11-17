@@ -54,7 +54,7 @@ function Clients() {
   }, []);
   
   return (
-    <div className='mb-10'>
+    <div className=''>
       {/* Providers Section */}
       <section id="providers" className="relative z-10 py-20 bg-gradient-to-b from-black to-gray-900/20 w-5/6 mx-auto">
         <div className="container mx-auto px-6 lg:px-8">

@@ -1,8 +1,8 @@
-import DomeGallery from './reactbits/DomeGallery';
+import CircularGallery from './reactbits/CircularGallery';
 export default function App() {
   return (
     <div>
-      <div className="text-center mb-16">
+      <div className="text-center mb-2">
       {/* <span className="px-4 py-2 bg-teal-700/50 backdrop-blur-sm border border-teal-600 rounded-full text-sm font-medium text-teal-400 inline-block">
             Portfolio
           </span> */}
@@ -13,9 +13,9 @@ export default function App() {
             Where ideas stick.
           </p>
 </div>
-    <div style={{  height: '100vh' }}>
-      <DomeGallery />
-    </div>
+    <div style={{ height: '600px', position: 'relative' }}>
+  <CircularGallery bend={-1} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02}/>
+</div>
     </div>
   );
 }
