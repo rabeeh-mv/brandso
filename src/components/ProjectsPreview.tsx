@@ -1,5 +1,6 @@
 // components/ProjectsPreview.tsx
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const projects = [
   { title: 'Urban Cafe Branding', category: 'Branding', image: '/projects/cafe.jpg' },
@@ -14,7 +15,7 @@ export default function ProjectsPreview() {
       className="py-20 relative overflow-hidden"
       style={{
         background: `linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a)`,
-        backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djJoaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bS0yIDJ2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yeiIvPjwvZz48L2c+PC9zdmc+')`,
+        backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djJoaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bS0yIDJ2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yeiIvPjwvZz48L2c+PC9zdmc+')`,
         backgroundSize: '60px 60px',
       }}
     >
@@ -26,7 +27,13 @@ export default function ProjectsPreview() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <span className="px-4 py-2 bg-teal-700/50 backdrop-blur-sm border border-teal-600 rounded-full text-sm font-medium text-teal-400 inline-block">
             Portfolio
           </span>
@@ -36,14 +43,19 @@ export default function ProjectsPreview() {
           <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
             Explore our latest creative work
           </p>
-        </div>
+        </motion.div>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project, i) => (
-            <div
+            <motion.div
               key={i}
               className="group relative overflow-hidden rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-teal-600 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-teal-900/30"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03 }}
             >
               <div className="aspect-[4/5] relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -62,17 +74,23 @@ export default function ProjectsPreview() {
                 <span className="text-sm text-slate-300">View Case Study</span>
                 <ArrowRight className="w-5 h-5 text-teal-400 group-hover:translate-x-1 transition-transform" />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <button className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold rounded-full transition-all hover:scale-105 flex items-center gap-2 mx-auto">
             View All Projects
             <ArrowRight className="w-5 h-5" />
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

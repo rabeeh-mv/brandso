@@ -1,4 +1,5 @@
 import { Sparkles, Package, Image, Video, Globe, Monitor, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /** @type {const} */
 const services = [
@@ -73,7 +74,7 @@ export default function Services() {
       className="py-16 md:py-24 relative overflow-hidden"
       style={{
         background: `linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a)`,
-        backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djJoaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bS0yIDJ2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yeiIvPjwvZz48L2c+PC9zdmc+')`,
+        backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djJoaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bS0yIDJ2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yeiIvPjwvZz48L2c+PC9zdmc+')`,
         backgroundSize: '60px 60px',
       }}
     >
@@ -81,7 +82,13 @@ export default function Services() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <motion.div 
+          className="text-center mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <span className="px-4 py-2 bg-teal-700/50 backdrop-blur-sm rounded-full text-sm font-medium border border-teal-600 inline-block">
             What We Do
           </span>
@@ -91,20 +98,25 @@ export default function Services() {
           <p className="text-lg text-slate-300 mt-3 max-w-2xl mx-auto">
             Choose a plan or go custom — we’ve got your brand covered.
           </p>
-        </div>
+        </motion.div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div
+              <motion.div
                 key={index}
                 className={`relative group h-full rounded-2xl p-6 md:p-8 transition-all duration-300
                   ${service.highlight || service.popular
                     ? 'bg-gradient-to-br from-teal-900/40 to-emerald-900/30 border border-teal-600 shadow-xl shadow-teal-900/30'
                     : 'bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-teal-600'
                   } hover:shadow-2xl hover:shadow-teal-900/30 hover:-translate-y-1`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
               >
                 {/* Popular Badge */}
                 {service.popular && (
@@ -153,18 +165,24 @@ export default function Services() {
                   Get Started
                   <ArrowRight className="w-4 h-4" />
                 </button>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Custom CTA */}
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <p className="text-slate-400 mb-4">Need something custom?</p>
           <button className="px-8 py-3 bg-transparent border-2 border-teal-600 text-teal-400 hover:bg-teal-600 hover:text-white rounded-full font-medium transition-all hover:scale-105">
             Talk to Us
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

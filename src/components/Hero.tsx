@@ -1,79 +1,82 @@
-import { ArrowRight, Play } from 'lucide-react';
+import { useState } from 'react';
+import PixelBlast from './reactbits/PixelBlast';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
+  const [isHovering, setIsHovering] = useState(false);
+
   return (
-    <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white min-h-screen flex items-center">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bS0yIDJ2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yem0wLTR2Mmgydi0yaC0yeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
+    <section className="bg-black text-white min-h-screen flex items-center relative overflow-hidden">
+      {/* PixelBlast Background */}
+      <div className="absolute inset-0 z-0">
+        <PixelBlast
+    variant="circle"
+    pixelSize={6}
+    color="#10b981"
+    patternScale={3}
+    patternDensity={1.2}
+    pixelSizeJitter={0.5}
+    enableRipples
+    rippleSpeed={0.4}
+    rippleThickness={0.12}
+    rippleIntensityScale={1.5}
+    speed={0.6}
+    edgeFade={0.25}
+    transparent
+  />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="inline-block">
-              <span className="px-4 py-2 bg-teal-700/50 backdrop-blur-sm rounded-full text-sm font-medium border border-teal-600">
-                BRANDSO
-              </span>
-            </div>
+      {/* Content */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+        <motion.div 
+          className="space-y-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Main Headline */}
+          {/* <BlurText
+  text="Isn't this so cool?!"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  onAnimationComplete={handleAnimationComplete}
+  className="text-2xl mb-8"
+/> */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            We Bring Your <br /><span className="text-emerald-500">Vision</span> to Life
+          </h1>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              We Bring Your
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
-                Vision to Life
-              </span>
-            </h1>
+          {/* Subtext */}
+          <motion.p 
+            className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+           A creative agency that turns bold ideas into unforgettable brands. We design with purpose, strategy, and soul. <br/> Design. Develop. Grow. — all in one place.
+          </motion.p>
 
-            <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
-              From stunning posters to captivating videos and cutting-edge web applications.
-              We transform ideas into exceptional digital experiences.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <button className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 rounded-lg font-semibold flex items-center gap-2 transition-all transform hover:scale-105">
-                Start Your Project
-                <ArrowRight className="w-5 h-5" />
-              </button>
-
-              <button className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 rounded-lg font-semibold flex items-center gap-2 border border-slate-600 transition-all">
-                <Play className="w-5 h-5" />
-                Watch Showreel
-              </button>
-            </div>
-
-            <div className="flex gap-12 pt-8 border-t border-slate-700">
-              <div>
-                <div className="text-3xl font-bold">500+</div>
-                <div className="text-slate-400 text-sm">Projects Delivered</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">200+</div>
-                <div className="text-slate-400 text-sm">Happy Clients</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">50+</div>
-                <div className="text-slate-400 text-sm">Awards Won</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative hidden md:block">
-            <div className="relative w-full h-[600px]">
-              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-full blur-3xl"></div>
-
-              <div className="relative h-full flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-4">
-                    <div className="w-40 h-52 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-lg transform rotate-3 hover:rotate-6 transition-transform"></div>
-                    <div className="w-40 h-32 bg-gradient-to-br from-teal-400 to-cyan-400 rounded-lg transform -rotate-2 hover:-rotate-4 transition-transform"></div>
-                  </div>
-                  <div className="space-y-4 pt-12">
-                    <div className="w-40 h-32 bg-gradient-to-br from-emerald-400 to-green-400 rounded-lg transform -rotate-3 hover:-rotate-6 transition-transform"></div>
-                    <div className="w-40 h-52 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-lg transform rotate-2 hover:rotate-4 transition-transform"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          {/* CTA Buttons */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4 pt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <button
+              className="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-semibold transition-colors"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              Start Your Project
+            </button>
+            
+            <button className="px-8 py-4 border-2 border-gray-700 hover:border-gray-500 rounded-lg font-semibold transition-colors">
+              View Our Work
+            </button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
